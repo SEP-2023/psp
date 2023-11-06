@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: crypto-service
+  datasource:
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
+    password: root
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/crypto
+    username: postgres
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false
+jwt:
+  secret: security
+
+server:
+  port: 8082
+  servlet:
+    context-path: /
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://eureka:password@localhost:8761/eureka
+
