@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CryptoApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
+	void contextLoads() {}
 
 }
