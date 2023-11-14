@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { environment } from "src/environments/environment"
 
 @Injectable({
@@ -17,8 +17,13 @@ export class PaypalService {
     //   transactionId:transactionId,
     //   shopId:shopId
     // }
+    return this._http.post<any>(`${this.url}/create-payment`,amount, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    });
 
-    return this._http.post<any>(`${this.url}/create-payment`,amount);
   }
 
   confirm(){
