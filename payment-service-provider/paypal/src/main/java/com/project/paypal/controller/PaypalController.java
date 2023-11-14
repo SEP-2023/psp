@@ -3,6 +3,8 @@ package com.project.paypal.controller;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
+import com.project.paypal.dto.CreatePaymentDto;
+import com.project.paypal.dto.RedirectToPaypalDto;
 import com.project.paypal.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,22 +20,22 @@ public class PaypalController {
     private final PaymentService paymentService;
 
     @PostMapping("/create-payment")
-    public ResponseEntity<String> createPayment(@RequestBody String amount) {
+    public ResponseEntity<RedirectToPaypalDto> createPayment(@RequestBody CreatePaymentDto amount) {
         try {
             Payment payment = paymentService.createPayment(amount);
 
             System.out.println(payment);
             for (Links link : payment.getLinks()) {
                 if (link.getRel().equals("approval_url")) {
-                    System.out.print(link);
-                    String href = link.getHref();
-                    return new ResponseEntity<String>(href, HttpStatus.OK);
+                    RedirectToPaypalDto response = new RedirectToPaypalDto();
+                    response.setRedirectUrl(link.getHref());
+                    return new ResponseEntity<>(response, HttpStatus.OK);
                 }
             }
         } catch (PayPalRESTException e) {
             e.printStackTrace();
         }
-        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new RedirectToPaypalDto(), HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/confirm")

@@ -7,6 +7,7 @@ export const environment = {
   bank_front_url: 'http://localhost:4202',
   paypal_service_url:"http://localhost:8000/paypal-service",
   psp_backend:"http://localhost:8000/",
+  agency_front_url:"http://localhost:4201",
 };
 
 /*

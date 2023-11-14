@@ -3,6 +3,7 @@ package com.project.paypal.service;
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
+import com.project.paypal.dto.CreatePaymentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +17,14 @@ public class PaymentService {
 
      private final APIContext apiContext;
 
-    public Payment createPayment(String price) throws PayPalRESTException {
+    public Payment createPayment(CreatePaymentDto dto) throws PayPalRESTException {
 
         Payment payment = new Payment();
 
         List<Transaction> transactions = new ArrayList<>();
 
         Amount amount = new Amount();
-        amount.setTotal("200");
+        amount.setTotal(dto.getAmount().toString());
         amount.setCurrency("USD");
         Transaction transaction = new Transaction();
         transaction.setAmount(amount);
@@ -40,7 +41,7 @@ public class PaymentService {
 
         RedirectUrls redirectUrls = new RedirectUrls();
         redirectUrls.setCancelUrl( "http://localhost:4200/api/cancel-paypal-payment" );
-        redirectUrls.setReturnUrl("http://localhost:4200/paypal-service");
+        redirectUrls.setReturnUrl("http://localhost:4200/confirm-payment");
         payment.setRedirectUrls(redirectUrls);
         apiContext.setMaskRequestId(true);
         return payment.create(apiContext);

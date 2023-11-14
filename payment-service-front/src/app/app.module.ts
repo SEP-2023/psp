@@ -14,12 +14,14 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ConfirmPaymentPageComponent } from './pages/confirm-payment-page/confirm-payment-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentWayPageComponent,
     NavbarComponent,
+    ConfirmPaymentPageComponent
   ],
   imports: [
     BrowserModule,
