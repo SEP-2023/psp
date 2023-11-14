@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-way-page.component.css']
 })
 export class PaymentWayPageComponent implements OnInit {
+  chosen:string='Card'
 
   constructor() { }
 
