@@ -22,7 +22,9 @@ export class PaymentWayPageComponent implements OnInit {
       .createPayment("20")
       .subscribe(
         (data) => {
-          alert('OK'), (window.location.href = data.url);
+          console.log(data)
+          alert('OK');
+          window.location.href = data.redirectUrl
         },
         (error) => {
           console.log(error);

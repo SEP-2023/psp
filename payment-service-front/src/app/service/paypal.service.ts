@@ -12,12 +12,13 @@ export class PaypalService {
   url = environment.paypal_service_url;
 
   createPayment(amount:string){
-    // let body:CreatePaypalPayment={
-    //   amount:amount,
-    //   transactionId:transactionId,
-    //   shopId:shopId
-    // }
-    return this._http.post<any>(`${this.url}/create-payment`,amount, {
+    // sve podatke proslijedi sa agencija fronta
+     let body = {
+       amount:amount,
+       transactionId:"uzmiIdOdAgencijaFronta",
+       agencyId: "shop"
+     }
+    return this._http.post<any>(`${this.url}/create-payment`,body, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',

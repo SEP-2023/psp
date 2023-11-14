@@ -10,12 +10,14 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ConfirmPaymentPageComponent } from './pages/confirm-payment-page/confirm-payment-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentWayPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ConfirmPaymentPageComponent
   ],
   imports: [
     BrowserModule,
