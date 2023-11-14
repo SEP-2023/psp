@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from "../../../environments/environment";
+import { PaypalService } from 'src/app/service/paypal.service';
 
 @Component({
   selector: 'app-payment-way-page',
@@ -8,7 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class PaymentWayPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private paypalService: PaypalService) { }
 
   ngOnInit(): void {
   }
@@ -17,8 +18,34 @@ export class PaymentWayPageComponent implements OnInit {
     console.log('radi')
   }
 
-  redirectToBank(){
+  redirectToBank() {
     window.location.href = environment.bank_front_url;
+  }
+
+  createPaypalPayment(){
+    this.paypalService
+      .createPayment("20")
+      .subscribe(
+        (data) => {
+          alert('OK'), (window.location.href = data.url);
+        },
+        (error) => {
+          alert('Greska');
+        }
+      );
+  }
+
+  confirm(){
+    this.paypalService
+      .confirm()
+      .subscribe(
+        (data) => {
+          alert('OK'), (window.location.href = data.url);
+        },
+        (error) => {
+          alert('Greska');
+        }
+      );
   }
 
 }
