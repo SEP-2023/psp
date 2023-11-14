@@ -25,6 +25,7 @@ export class PaymentWayPageComponent implements OnInit {
           alert('OK'), (window.location.href = data.url);
         },
         (error) => {
+          console.log(error);
           alert('Greska');
         }
       );
