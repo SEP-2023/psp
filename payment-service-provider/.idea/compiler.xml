@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bank.payment" />
+        <module name="api-gateway" />
+        <module name="payment.service.provider" />
+        <module name="paypal" />
+        <module name="service-registry" />
+        <module name="crypto" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="1.8" />
+      <module name="bank.payment" target="8" />
+      <module name="crypto" target="8" />
+      <module name="payment.service.provider" target="11" />
+      <module name="paypal" target="8" />
+      <module name="service-registry" target="8" />
+      <module name="subscription" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="bank.payment" options="-parameters" />
+      <module name="crypto" options="-parameters" />
+      <module name="payment.service.provider" options="-parameters" />
+      <module name="paypal" options="-parameters" />
+      <module name="service-registry" options="-parameters" />
+      <module name="subscription" options="-parameters" />
+    </option>
+  </component>
+</project>

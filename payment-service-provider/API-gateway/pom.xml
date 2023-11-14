@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -70,8 +70,14 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webflux</artifactId>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-webmvc</artifactId>-->
+<!--		</dependency>-->
 	</dependencies>
 
 
