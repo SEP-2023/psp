@@ -9,6 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./payment-way-page.component.css']
 })
 export class PaymentWayPageComponent implements OnInit {
+  chosen:string='Card'
 
   constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
 
