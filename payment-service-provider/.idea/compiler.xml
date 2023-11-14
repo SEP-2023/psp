@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="bank.payment" />
         <module name="api-gateway" />
-        <module name="payment.service.provider" />
         <module name="paypal" />
         <module name="service-registry" />
         <module name="crypto" />
