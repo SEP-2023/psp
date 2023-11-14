@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  paypal_service_url:"http://localhost:8000/paypal-service",
+  psp_backend:"http://localhost:8000/",
 };
 
 /*
