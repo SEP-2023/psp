@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.project.apigateway.config;
 
 import lombok.RequiredArgsConstructor;
@@ -34,25 +33,3 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 }
 
 
-=======
-//package com.project.apigateway.config;
-//
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.web.servlet.config.annotation.CorsRegistry;
-//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-//import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-//
-//@Configuration
-//@EnableWebMvc
-//public class WebConfig implements WebMvcConfigurer {
-//
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry){
-//        registry.addMapping("/**").allowedOrigins("http://localhost:4200")
-//                .allowedOrigins("*").allowedHeaders("*").allowedMethods("*");
-//
-//    }
-//
-//}
-//
->>>>>>> 6bc385d (Add paypal function)
