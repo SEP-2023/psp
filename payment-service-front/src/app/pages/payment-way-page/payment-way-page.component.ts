@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-payment-way-page',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-way-page.component.css']
 })
 export class PaymentWayPageComponent implements OnInit {
-  chosen:string='Card'
 
   constructor() { }
 
@@ -15,6 +15,10 @@ export class PaymentWayPageComponent implements OnInit {
 
   redirect(){
     console.log('radi')
+  }
+
+  redirectToBank(){
+    window.location.href = environment.bank_front_url;
   }
 
 }
