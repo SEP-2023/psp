@@ -15,13 +15,17 @@ import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ConfirmPaymentPageComponent } from './pages/confirm-payment-page/confirm-payment-page.component';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
+import { PaymentCanceledComponent } from './components/payment-canceled/payment-canceled.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentWayPageComponent,
     NavbarComponent,
-    ConfirmPaymentPageComponent
+    ConfirmPaymentPageComponent,
+    PaymentSuccessComponent,
+    PaymentCanceledComponent
   ],
   imports: [
     BrowserModule,
