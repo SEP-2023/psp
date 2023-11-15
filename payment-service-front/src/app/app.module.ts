@@ -30,7 +30,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     PaymentSuccessComponent,
     PaymentCanceledComponent,
     SubscriptionRedirectComponent,
-    ConfirmSubscriptionComponent
+    ConfirmSubscriptionComponent,
+    PaymentCanceledComponent
   ],
     imports: [
         BrowserModule,
