@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import { PaypalService } from 'src/app/service/paypal.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-payment-way-page',
@@ -9,9 +10,20 @@ import { PaypalService } from 'src/app/service/paypal.service';
 })
 export class PaymentWayPageComponent implements OnInit {
 
-  constructor(private paypalService: PaypalService) { }
+  constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
+
+  private price!: string;
+  private transactionId!: string;
+  private agencyId!: string;
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.price = params['price'];
+      this.transactionId = params['transactionId'];
+      this.agencyId = params['agencyId'];
+
+      console.log('Received parameters:', this.price);
+    });
   }
 
   redirect(){
@@ -24,12 +36,11 @@ export class PaymentWayPageComponent implements OnInit {
 
   createPaypalPayment(){
     this.paypalService
-      .createPayment("20")
+      .createPayment(this.price, this.transactionId, this.agencyId)
       .subscribe(
         (data) => {
           console.log(data)
-          alert('OK');
-          window.location.href = data.redirectUrl
+          window.location.href = data.redirectUrl;
         },
         (error) => {
           console.log(error);

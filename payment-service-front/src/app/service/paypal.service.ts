@@ -11,12 +11,11 @@ export class PaypalService {
 
   url = environment.paypal_service_url;
 
-  createPayment(amount:string){
-    // sve podatke proslijedi sa agencija fronta
+  createPayment(amount:string, transactionId: string, agencyId: string){
      let body = {
        amount:amount,
-       transactionId:"uzmiIdOdAgencijaFronta",
-       agencyId: "shop"
+       transactionId:transactionId,
+       agencyId: agencyId
      }
     return this._http.post<any>(`${this.url}/create-payment`,body, {
       headers: new HttpHeaders({
@@ -27,7 +26,20 @@ export class PaypalService {
 
   }
 
-  confirm(){
-    return this._http.post<any>(`${this.url}/confirm`,"54");
+  confirm(price: string, transactionId: string, agencyId: string, paymentId: string, token: string, PayerID:string){
+    let body = {
+      amount:price,
+      transactionId:transactionId,
+      agencyId: agencyId,
+      paymentId: paymentId,
+      token: token,
+      payerId: PayerID
+    }
+    return this._http.post<any>(`${this.url}/confirm`,body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    });
   }
 }

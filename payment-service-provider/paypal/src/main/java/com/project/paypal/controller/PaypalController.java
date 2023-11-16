@@ -3,7 +3,9 @@ package com.project.paypal.controller;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
+import com.project.paypal.dto.ConfirmPaymentDto;
 import com.project.paypal.dto.CreatePaymentDto;
+import com.project.paypal.dto.ExecutionPaymentResultDto;
 import com.project.paypal.dto.RedirectToPaypalDto;
 import com.project.paypal.service.PaymentService;
 import lombok.RequiredArgsConstructor;
@@ -39,17 +41,18 @@ public class PaypalController {
     }
 
     @PostMapping("/confirm")
-    public ResponseEntity<?> executePayment(@RequestBody String dto) {
+    public ResponseEntity<?> executePayment(@RequestBody ConfirmPaymentDto dto) {
 
         try {
             boolean executed = paymentService.executePayment(dto);
             if (executed) {
-
-                return new ResponseEntity<Boolean>(HttpStatus.OK);
+                ExecutionPaymentResultDto res = new ExecutionPaymentResultDto();
+                res.setExecuted(true);
+                return new ResponseEntity<>(res, HttpStatus.OK);
             }
         } catch (PayPalRESTException e) {
             System.out.println(e.getMessage());
         }
-        return new ResponseEntity<Boolean>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<ExecutionPaymentResultDto>(HttpStatus.BAD_REQUEST);
     }
 }
