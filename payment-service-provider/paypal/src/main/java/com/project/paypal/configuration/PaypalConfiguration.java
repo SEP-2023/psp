@@ -13,8 +13,10 @@ import java.util.Map;
 public class PaypalConfiguration {
 
 
-    String clientId = "AQo7jtaQwfbGrAwz1wEqMPiL6hhG-tpuG5rNlhZfEtwPMKf8YOlyofSJlXhY7z1UmjgaZGfbW237iz_5";
-    String clientSecret = "EHx6KiMDHO-U_G_RnzA0CSQfOogb590uYCe609htoRipTKUN2VXrVZczX9L4NKSD5GJ9m9H1-M6ux4AK";
+    String clientId = "AYZbK31Co6zH6D0U6gU3OyEkE9HQ54-jSfBG4ibRgQD6tzt6SxSIkyWlEIoEtUXQYlJo0nldpn70zrzS";
+           //  "AQo7jtaQwfbGrAwz1wEqMPiL6hhG-tpuG5rNlhZfEtwPMKf8YOlyofSJlXhY7z1UmjgaZGfbW237iz_5";
+    String clientSecret = "EBXGH50yZyudlMq7uMbTQIVX_uEmFoCjRtcY_X_ECZok8kaA8loZnVq18AVExx69_ieSm8aWMUStBSxn";
+                   // "EHx6KiMDHO-U_G_RnzA0CSQfOogb590uYCe609htoRipTKUN2VXrVZczX9L4NKSD5GJ9m9H1-M6ux4AK";
 
     @Bean
     public OAuthTokenCredential oAuthTokenCredential(){

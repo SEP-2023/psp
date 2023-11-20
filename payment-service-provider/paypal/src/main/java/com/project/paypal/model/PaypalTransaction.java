@@ -24,6 +24,9 @@ public class PaypalTransaction {
     @Column(name = "agencyId")
     private String agencyId;
 
+    @Column(name = "isSubscription")
+    private Boolean isSubscription = false;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private TransactionStatus transactionStatus;

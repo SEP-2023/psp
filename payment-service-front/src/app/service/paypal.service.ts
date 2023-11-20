@@ -42,4 +42,28 @@ export class PaypalService {
       }),
     });
   }
+
+  createSubscription(amount: string, frequency: string, transactionId: string, agencyId: string){
+    let body = {
+      amount:amount,
+      frequency:frequency,
+      transactionId:transactionId,
+      agencyId: agencyId
+    }
+    return this._http.post<any>(`${this.url}/create-subscription`,body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    });
+  }
+
+  confirmSubscription(token: string){
+    return this._http.get<any>(`${this.url}/execute-subscription/${token}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    });
+  }
 }

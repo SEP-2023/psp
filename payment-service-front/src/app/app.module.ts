@@ -17,6 +17,9 @@ import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { PaymentCanceledComponent } from './components/payment-canceled/payment-canceled.component';
+import { SubscriptionRedirectComponent } from './pages/subscription-redirect/subscription-redirect.component';
+import { ConfirmSubscriptionComponent } from './pages/confirm-subscription/confirm-subscription.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -25,21 +28,24 @@ import { PaymentCanceledComponent } from './components/payment-canceled/payment-
     NavbarComponent,
     ConfirmPaymentPageComponent,
     PaymentSuccessComponent,
-    PaymentCanceledComponent
+    PaymentCanceledComponent,
+    SubscriptionRedirectComponent,
+    ConfirmSubscriptionComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

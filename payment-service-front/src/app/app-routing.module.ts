@@ -4,6 +4,8 @@ import {PaymentWayPageComponent} from "./pages/payment-way-page/payment-way-page
 import {ConfirmPaymentPageComponent} from "./pages/confirm-payment-page/confirm-payment-page.component";
 import {PaymentSuccessComponent} from "./components/payment-success/payment-success.component";
 import {PaymentCanceledComponent} from "./components/payment-canceled/payment-canceled.component";
+import {SubscriptionRedirectComponent} from "./pages/subscription-redirect/subscription-redirect.component";
+import {ConfirmSubscriptionComponent} from "./pages/confirm-subscription/confirm-subscription.component";
 
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'confirm-payment', component: ConfirmPaymentPageComponent },
   { path: 'success', component: PaymentSuccessComponent },
   { path: 'canceled', component: PaymentCanceledComponent },
+  { path: 'subscription-redirect', component: SubscriptionRedirectComponent },
+  { path: 'confirm-subscription', component: ConfirmSubscriptionComponent },
 ];
 
 @NgModule({

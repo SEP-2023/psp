@@ -11,7 +11,6 @@ import {ActivatedRoute} from "@angular/router";
 export class ConfirmPaymentPageComponent implements OnInit {
 
   constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
-  // http://localhost:4200/confirm-payment?price=400.0&transactionId=b2f0c737-c7e3-47c5-8678-4b52c476587d&agencyId=nekiId&paymentId=PAYID-MVKVBOY9RE308674D3563213&token=EC-7NB24671GS427862B&PayerID=QXJPLU2SWJ6R6
   private price!: string;
   private transactionId!: string;
   private agencyId!: string;

@@ -23,7 +23,9 @@ export class PaymentCanceledComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log(data)
-          },
+            setTimeout(() => {
+              window.location.href = "http://localhost:4201";
+            }, 2000);          },
           (error) => {
             console.log(error)
           }
