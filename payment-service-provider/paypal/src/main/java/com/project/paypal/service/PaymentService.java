@@ -5,6 +5,9 @@ import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 import com.project.paypal.dto.ConfirmPaymentDto;
 import com.project.paypal.dto.CreatePaymentDto;
+import com.project.paypal.model.PaypalTransaction;
+import com.project.paypal.model.TransactionStatus;
+import com.project.paypal.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,7 @@ import java.util.List;
 public class PaymentService {
 
      private final APIContext apiContext;
+     private final TransactionRepository transactionRepository;
 
     public Payment createPayment(CreatePaymentDto dto) throws PayPalRESTException {
 
@@ -61,5 +65,23 @@ public class PaymentService {
            executed=true;
         }
         return executed;
+    }
+
+    public void saveSuccessfulTransaction(ConfirmPaymentDto dto){
+        PaypalTransaction t = new PaypalTransaction();
+        t.setTransactionId(dto.getTransactionId());
+        t.setAmount(dto.getAmount());
+        t.setAgencyId(dto.getAgencyId());
+        t.setTransactionStatus(TransactionStatus.APPROVED);
+        transactionRepository.save(t);
+    }
+
+    public void saveFailedTransaction(ConfirmPaymentDto dto){
+        PaypalTransaction t = new PaypalTransaction();
+        t.setTransactionId(dto.getTransactionId());
+        t.setAmount(dto.getAmount());
+        t.setAgencyId(dto.getAgencyId());
+        t.setTransactionStatus(TransactionStatus.FAILED);
+        transactionRepository.save(t);
     }
 }

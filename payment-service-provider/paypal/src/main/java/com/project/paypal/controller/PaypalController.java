@@ -48,7 +48,10 @@ public class PaypalController {
             if (executed) {
                 ExecutionPaymentResultDto res = new ExecutionPaymentResultDto();
                 res.setExecuted(true);
+                paymentService.saveSuccessfulTransaction(dto);
                 return new ResponseEntity<>(res, HttpStatus.OK);
+            } else {
+                paymentService.saveFailedTransaction(dto);
             }
         } catch (PayPalRESTException e) {
             System.out.println(e.getMessage());
