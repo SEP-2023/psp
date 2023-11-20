@@ -10,6 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PaymentWayPageComponent implements OnInit {
 
+<<<<<<< Updated upstream
   constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
 
   private price!: string;
@@ -23,6 +24,17 @@ export class PaymentWayPageComponent implements OnInit {
       this.agencyId = params['agencyId'];
 
       console.log('Received parameters:', this.price);
+=======
+  constructor(private paypalService: PaypalService,private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const param1 = params['price'];
+      console.log(params);
+
+      // Use the received parameters as needed
+      console.log('Received parameters:', param1);
+>>>>>>> Stashed changes
     });
   }
 
