@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import { PaypalService } from 'src/app/service/paypal.service';
 import {ActivatedRoute} from "@angular/router";
+import {BankService} from "../../service/bank.service";
 
 @Component({
   selector: 'app-payment-way-page',
@@ -10,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PaymentWayPageComponent implements OnInit {
 
-  constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
+  constructor(private paypalService: PaypalService, private bankService: BankService, private route: ActivatedRoute) { }
 
   private price!: string;
   private transactionId!: string;
@@ -31,7 +32,18 @@ export class PaymentWayPageComponent implements OnInit {
   }
 
   redirectToBank() {
-    window.location.href = environment.bank_front_url;
+    this.bankService
+      .getPaymentUrl(this.price, this.transactionId, this.agencyId)
+      .subscribe(
+        (data) => {
+          console.log(data)
+          window.location.href = data.paymentUrl;
+        },
+        (error) => {
+          console.log(error);
+          alert('Greska');
+        }
+      );
   }
 
   createPaypalPayment(){

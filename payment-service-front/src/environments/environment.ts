@@ -4,11 +4,12 @@
 
 export const environment = {
   production: false,
-  bank_front_url: 'http://localhost:4202',
   paypal_service_url:"http://localhost:8000/paypal-service",
   psp_backend:"http://localhost:8000/",
   agency_backend:"http://localhost:8085/",
   agency_front_url:"http://localhost:4201",
+  bank_url: "http://localhost:8086/"
+
 };
 
 /*
