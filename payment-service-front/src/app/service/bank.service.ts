@@ -17,7 +17,7 @@ export class BankService {
       merchantId: agencyId,
       merchantTimestamp: new Date()
     }
-    return this._http.post<any>(`${this.url}/getPaymentUrl`,body, {
+    return this._http.post<any>(`${this.url}getPaymentUrl`,body, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',

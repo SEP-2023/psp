@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Table(name="transactions")
 public class Transaction {
     @Id

@@ -24,7 +24,7 @@ jwt:
   secret: security
 
 server:
-  port: 9000
+  port: 8086
   servlet:
     context-path: /
 

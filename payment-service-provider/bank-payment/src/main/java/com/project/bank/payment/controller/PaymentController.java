@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,7 +16,8 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping("/getPaymentUrl")
-    public ResponseEntity<?> getPaymentUrl(PaymentUrlRequestDto dto){
+    public ResponseEntity<?> getPaymentUrl(@RequestBody PaymentUrlRequestDto dto){
+        System.out.println("evo ga u bank payment");
         return new ResponseEntity<>(paymentService.getPaymentUrl(dto), HttpStatus.OK);
     }
 }
