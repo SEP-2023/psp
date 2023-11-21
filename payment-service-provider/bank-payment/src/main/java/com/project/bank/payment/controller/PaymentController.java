@@ -1,5 +1,6 @@
 package com.project.bank.payment.controller;
 
+import com.project.bank.payment.dto.CompleteTransactionDto;
 import com.project.bank.payment.dto.PaymentUrlRequestDto;
 import com.project.bank.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,11 @@ public class PaymentController {
     public ResponseEntity<?> getPaymentUrl(@RequestBody PaymentUrlRequestDto dto){
         System.out.println("evo ga u bank payment");
         return new ResponseEntity<>(paymentService.getPaymentUrl(dto), HttpStatus.OK);
+    }
+
+    @PostMapping("/completeTransaction")
+    public ResponseEntity<?> completeTransaction(@RequestBody CompleteTransactionDto dto){
+        System.out.println("evo ga u bank payment");
+        return new ResponseEntity<>(paymentService.completeTransaction(dto), HttpStatus.OK);
     }
 }

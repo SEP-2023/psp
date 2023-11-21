@@ -17,6 +17,8 @@ import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { PaymentCanceledComponent } from './components/payment-canceled/payment-canceled.component';
+import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
+import { PaymentFailedComponent } from './components/payment-failed/payment-failed.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PaymentCanceledComponent } from './components/payment-canceled/payment-
     NavbarComponent,
     ConfirmPaymentPageComponent,
     PaymentSuccessComponent,
-    PaymentCanceledComponent
+    PaymentCanceledComponent,
+    PaymentErrorComponent,
+    PaymentFailedComponent
   ],
   imports: [
     BrowserModule,

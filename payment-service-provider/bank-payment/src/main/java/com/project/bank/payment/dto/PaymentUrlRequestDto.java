@@ -10,4 +10,7 @@ public class PaymentUrlRequestDto {
     private Double amount;
     private String merchantOrderId;
     private LocalDateTime merchantTimestamp;
+    private String successUrl;
+    private String failedUrl;
+    private String errorUrl;
 }

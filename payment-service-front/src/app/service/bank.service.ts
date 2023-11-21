@@ -15,7 +15,10 @@ export class BankService {
       amount: amount,
       merchantOrderId: transactionId,
       merchantId: agencyId,
-      merchantTimestamp: new Date()
+      merchantTimestamp: new Date(),
+      successUrl: "http://localhost:4200/success",
+      errorUrl: "http://localhost:4200/error",
+      failedUrl: "http://localhost:4200/failed"
     }
     return this._http.post<any>(`${this.url}getPaymentUrl`,body, {
       headers: new HttpHeaders({
