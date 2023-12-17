@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import { PaypalService } from 'src/app/service/paypal.service';
 import {ActivatedRoute} from "@angular/router";
+import {CryptoService} from "../../service/crypto.service";
 
 @Component({
   selector: 'app-payment-way-page',
@@ -10,8 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PaymentWayPageComponent implements OnInit {
 
-<<<<<<< Updated upstream
-  constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
+constructor(private paypalService: PaypalService,private cryptoService: CryptoService, private route: ActivatedRoute) { }
 
   private price!: string;
   private transactionId!: string;
@@ -24,17 +24,6 @@ export class PaymentWayPageComponent implements OnInit {
       this.agencyId = params['agencyId'];
 
       console.log('Received parameters:', this.price);
-=======
-  constructor(private paypalService: PaypalService,private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const param1 = params['price'];
-      console.log(params);
-
-      // Use the received parameters as needed
-      console.log('Received parameters:', param1);
->>>>>>> Stashed changes
     });
   }
 
@@ -53,6 +42,21 @@ export class PaymentWayPageComponent implements OnInit {
         (data) => {
           console.log(data)
           window.location.href = data.redirectUrl;
+        },
+        (error) => {
+          console.log(error);
+          alert('Greska');
+        }
+      );
+  }
+
+  createCryptoOrder(){
+    this.cryptoService
+      .createPayment(this.price, this.transactionId, this.agencyId)
+      .subscribe(
+        (data) => {
+          console.log(data)
+          window.open(data.payment_url);
         },
         (error) => {
           console.log(error);
