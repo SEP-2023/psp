@@ -4,6 +4,8 @@ import {PaymentWayPageComponent} from "./pages/payment-way-page/payment-way-page
 import {ConfirmPaymentPageComponent} from "./pages/confirm-payment-page/confirm-payment-page.component";
 import {PaymentSuccessComponent} from "./components/payment-success/payment-success.component";
 import {PaymentCanceledComponent} from "./components/payment-canceled/payment-canceled.component";
+import {CryptoCanceledPageComponent} from "./pages/crypto-canceled-page/crypto-canceled-page.component";
+import {CryptoSuccessPageComponent} from "./pages/crypto-success-page/crypto-success-page.component";
 
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'confirm-payment', component: ConfirmPaymentPageComponent },
   { path: 'success', component: PaymentSuccessComponent },
   { path: 'canceled', component: PaymentCanceledComponent },
+  { path: 'cancel-crypto', component: CryptoCanceledPageComponent },
+  { path: 'successful-crypto', component: CryptoSuccessPageComponent },
 ];
 
 @NgModule({
