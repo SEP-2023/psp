@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AgencyService} from "../../service/agency.service";
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-payment-success',
@@ -23,9 +24,10 @@ export class PaymentSuccessComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log(data)
-            setTimeout(() => {
-              window.location.href = "http://localhost:4201";
-            }, 2000);          },
+            setTimeout(function() {
+              window.location.href = environment.agency_front_url;
+              }, 5000);
+            },
           (error) => {
             console.log(error)
           }
