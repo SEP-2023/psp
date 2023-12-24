@@ -1,0 +1,46 @@
+<div class="p-5 vh-100 hero-main" xmlns="http://www.w3.org/1999/html">
+
+  <div class="row">
+    <div class="container shadow-lg px-4 py-3 col-9 rounded-4" style="background: lightgray">
+      <div class="payment-container">
+        <h2 class="pb-3" style="font-size: 35px">Odaberite pretplatu:</h2>
+        <button style="font-size: 15px;" (click)="redirectToPayment()">Nazad</button>
+      </div>
+      <div>
+        <div class="" style="padding: 0 100px">
+          <div class="rounded p-3 row justify-content-between">
+            <span class="col-6 d-flex flex-column align-items-center" *ngIf="!paypalSubscribed">
+            <div class="col-6 rounded zoom text-center" style="width: 330px">
+              <img src="assets/PayPal_2023_Logo.jpg" style="max-height: 100%;max-width: 100%;" class="rounded">
+            </div>
+              <button style="background-color: white; border-color: white; margin-top: 5px" (click)="subscribe('paypal')" >Pretplati se</button>
+            </span>
+            <span class="col-6 d-flex flex-column align-items-center" *ngIf="!cardSubscribed">
+            <div class="col-6 rounded-2 shadow zoom text-center p-5 "  style="width: 320px;height:170px;background: white;color: darkblue">
+              <h1 style="font-weight: bold;font-family:'Arial Black',serif">Card</h1>
+            </div>
+              <button style="background-color: white; border-color: white; margin-top: 5px; alignment: center"  (click)="subscribe('card')" >Pretplati se</button>
+            </span>
+          </div>
+          <div class=" rounded p-3 row justify-content-between">
+            <span class="col-6 d-flex flex-column align-items-center" *ngIf="!qrSubscribed" >
+            <div class="col-6 rounded-2 shadow zoom text-center p-5 " style="width: 320px;background: white;color: darkblue">
+              <h1 style="font-weight: bold;font-family:'Arial Black',serif">QR code</h1>
+            </div>
+              <button style="background-color: white; border-color: white; margin-top: 5px; alignment: center" (click)="subscribe('qr')" >Pretplati se</button>
+          </span>
+            <span class="col-6 d-flex flex-column align-items-center" *ngIf="!bitcoinSubscribed">
+            <div class="col-6 rounded-2 shadow text-center p-5 zoom" style="width: 320px;background: white;color: darkblue">
+              <h1 style="font-weight: bold;font-family:'Arial Black',serif">Bitcoin</h1>
+            </div>
+              <button style="background-color: white; border-color: white; margin-top: 5px; alignment: center" (click)="subscribe('bitcoin')" >Pretplati se</button>
+          </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

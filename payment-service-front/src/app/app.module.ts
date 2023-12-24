@@ -20,6 +20,9 @@ import { PaymentCanceledComponent } from './components/payment-canceled/payment-
 import { SubscriptionRedirectComponent } from './pages/subscription-redirect/subscription-redirect.component';
 import { ConfirmSubscriptionComponent } from './pages/confirm-subscription/confirm-subscription.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { CryptoSuccessPageComponent } from './pages/crypto-success-page/crypto-success-page.component';
+import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto-canceled-page.component';
+import { SubscriptionComponent } from './pages/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -30,22 +33,27 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     PaymentSuccessComponent,
     PaymentCanceledComponent,
     SubscriptionRedirectComponent,
-    ConfirmSubscriptionComponent
+    ConfirmSubscriptionComponent,
+    PaymentCanceledComponent,
+    CryptoSuccessPageComponent,
+    CryptoCanceledPageComponent,
+    SubscriptionComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

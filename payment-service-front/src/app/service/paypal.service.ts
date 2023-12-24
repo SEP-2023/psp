@@ -23,7 +23,6 @@ export class PaypalService {
         'Access-Control-Allow-Origin': '*',
       }),
     });
-
   }
 
   confirm(price: string, transactionId: string, agencyId: string, paymentId: string, token: string, PayerID:string){
