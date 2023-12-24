@@ -1,0 +1,1 @@
+INSERT INTO public.merchants(merchant_id, token) VALUES ('1','zVi-zRdiNce4fDrcmsgN9MHMM-vWG5SpHqNZChNx');
