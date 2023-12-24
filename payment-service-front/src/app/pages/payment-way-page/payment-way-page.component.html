@@ -2,22 +2,25 @@
 
   <div class="row">
     <div class="container shadow-lg px-4 py-3 col-9 rounded-4" style="background: lightgray">
-      <h2 class="pb-3" style="font-size: 35px" >Odaberite nacin placanja</h2>
+      <div class="payment-container">
+        <h2 class="pb-3" style="font-size: 35px">Odaberite nacin placanja</h2>
+        <button style="font-size: 15px;" (click)="redirectToSubscription()">Pretplata</button>
+      </div>
       <div>
         <div class="" style="padding: 0 100px">
           <div class="rounded p-3 row justify-content-between">
-            <div class="col-6 rounded zoom text-center" style="width: 330px">
+            <div class="col-6 rounded zoom text-center" style="width: 330px" *ngIf="paypalSubscribed">
               <img (click)="createPaypalPayment()" src="assets/PayPal_2023_Logo.jpg" style="max-height: 100%;max-width: 100%;" class="rounded">
             </div>
-            <div class="col-6 rounded-2 shadow zoom text-center p-5 " (click)="redirectToBank()" style="width: 320px;height:150px;background: white;color: darkblue">
+            <div class="col-6 rounded-2 shadow zoom text-center p-5 " (click)="redirectToBank()" *ngIf="cardSubscribed" style="width: 320px;height:150px;background: white;color: darkblue">
               <h1 style="font-weight: bold;font-family:'Arial Black',serif">Card</h1>
             </div>
           </div>
           <div class=" rounded p-3 row justify-content-between">
-            <div class="col-6 rounded-2 shadow zoom text-center p-5 " style="width: 320px;background: white;color: darkblue">
+            <div class="col-6 rounded-2 shadow zoom text-center p-5 " style="width: 320px;background: white;color: darkblue" *ngIf="qrSubscribed">
               <h1 style="font-weight: bold;font-family:'Arial Black',serif">QR code</h1>
             </div>
-            <div class="col-6 rounded-2 shadow text-center p-5 zoom" (click)="createCryptoOrder()" style="width: 320px;background: white;color: darkblue">
+            <div class="col-6 rounded-2 shadow text-center p-5 zoom" (click)="createCryptoOrder()" *ngIf="bitcoinSubscribed" style="width: 320px;background: white;color: darkblue">
               <h1 style="font-weight: bold;font-family:'Arial Black',serif">Bitcoin</h1>
             </div>
           </div>

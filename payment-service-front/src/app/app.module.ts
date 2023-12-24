@@ -22,6 +22,7 @@ import { ConfirmSubscriptionComponent } from './pages/confirm-subscription/confi
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CryptoSuccessPageComponent } from './pages/crypto-success-page/crypto-success-page.component';
 import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto-canceled-page.component';
+import { SubscriptionComponent } from './pages/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto
     ConfirmSubscriptionComponent,
     PaymentCanceledComponent,
     CryptoSuccessPageComponent,
-    CryptoCanceledPageComponent
+    CryptoCanceledPageComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,

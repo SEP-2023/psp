@@ -8,6 +8,7 @@ import {SubscriptionRedirectComponent} from "./pages/subscription-redirect/subsc
 import {ConfirmSubscriptionComponent} from "./pages/confirm-subscription/confirm-subscription.component";
 import {CryptoCanceledPageComponent} from "./pages/crypto-canceled-page/crypto-canceled-page.component";
 import {CryptoSuccessPageComponent} from "./pages/crypto-success-page/crypto-success-page.component";
+import {SubscriptionComponent} from "./pages/subscription/subscription.component";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'confirm-subscription', component: ConfirmSubscriptionComponent },
   { path: 'cancel-crypto', component: CryptoCanceledPageComponent },
   { path: 'successful-crypto', component: CryptoSuccessPageComponent },
+  { path: 'subscription', component: SubscriptionComponent },
 ];
 
 @NgModule({
