@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PaypalService} from "../../service/paypal.service";
 import {SubscriptionService} from "../../service/subscription.service";
 import {environment} from "../../../environments/environment";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-subscription',
@@ -10,11 +11,14 @@ import {environment} from "../../../environments/environment";
 })
 export class SubscriptionComponent implements OnInit {
 
+  private price!: string;
+  private transactionId!: string;
+  private agencyId!: string;
   paypalSubscribed!: boolean;
   bitcoinSubscribed!: boolean;
   cardSubscribed!: boolean;
   qrSubscribed!: boolean;
-  constructor(private subscriptionService: SubscriptionService) {
+  constructor(private subscriptionService: SubscriptionService, private route: ActivatedRoute) {
     this.paypalSubscribed = false;
     this.qrSubscribed = false;
     this.bitcoinSubscribed = false;
@@ -22,8 +26,14 @@ export class SubscriptionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.price = params['price'];
+      this.transactionId = params['transactionId'];
+      this.agencyId = params['agencyId'];
+      console.log('Received parameters:', this.price);
+    });
     this.subscriptionService
-      .getPaymentMethods()
+      .getPaymentMethods(this.agencyId)
       .subscribe(
         (data) => {
           console.log(data)
@@ -41,12 +51,12 @@ export class SubscriptionComponent implements OnInit {
   }
 
   redirectToPayment() {
-    window.location.href = environment.psp_front_url;
+    window.location.href = `${environment.psp_front_url}?price=${this.price}&transactionId=${this.transactionId}&agencyId=${this.agencyId}`;
   }
 
   subscribe(method: string) {
     this.subscriptionService
-      .subscribe(method)
+      .subscribe(method, this.agencyId)
       .subscribe(
         (data) => {
           console.log(data)

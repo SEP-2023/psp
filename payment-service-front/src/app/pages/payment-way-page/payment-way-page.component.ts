@@ -37,7 +37,7 @@ export class PaymentWayPageComponent implements OnInit {
       console.log('Received parameters:', this.price);
     });
     this.subscriptionService
-      .getPaymentMethods()
+      .getPaymentMethods(this.agencyId)
       .subscribe(
         (data) => {
           console.log(data)
@@ -62,7 +62,7 @@ export class PaymentWayPageComponent implements OnInit {
     window.location.href = environment.bank_front_url;
   }
   redirectToSubscription() {
-    window.location.href = environment.psp_front_url + "/subscription";
+    window.location.href = `${environment.psp_front_url}/subscription?price=${this.price}&transactionId=${this.transactionId}&agencyId=${this.agencyId}`;
   }
 
   createPaypalPayment(){
