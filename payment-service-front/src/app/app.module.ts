@@ -19,6 +19,7 @@ import { PaymentSuccessComponent } from './components/payment-success/payment-su
 import { PaymentCanceledComponent } from './components/payment-canceled/payment-canceled.component';
 import { CryptoSuccessPageComponent } from './pages/crypto-success-page/crypto-success-page.component';
 import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto-canceled-page.component';
+import { SubscriptionComponent } from './pages/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto
     PaymentSuccessComponent,
     PaymentCanceledComponent,
     CryptoSuccessPageComponent,
-    CryptoCanceledPageComponent
+    CryptoCanceledPageComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,

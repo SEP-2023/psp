@@ -10,6 +10,7 @@ export const environment = {
   psp_backend:"http://localhost:8000/",
   agency_backend:"http://localhost:8085/",
   agency_front_url:"http://localhost:4201",
+  psp_front_url:"http://localhost:4200",
 };
 
 /*
