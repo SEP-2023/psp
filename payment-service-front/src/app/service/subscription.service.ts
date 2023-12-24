@@ -11,10 +11,10 @@ export class SubscriptionService {
 
   url = environment.psp_backend + "auth-service";
 
-  subscribe(paymentMethod :string){
+  subscribe(paymentMethod :string, agencyId: string){
     let body = {
       paymentMethod:paymentMethod,
-      agencyId: "nekiId"
+      agencyId: agencyId
     }
     return this._http.post<any>(`${this.url}/payment-methods`,body, {
       headers: new HttpHeaders({
@@ -25,8 +25,8 @@ export class SubscriptionService {
 
   }
 
-  getPaymentMethods(){
-    return this._http.get<any>(`${this.url}/payment-methods/nekiId`, {
+  getPaymentMethods(agencyId: string){
+    return this._http.get<any>(`${this.url}/payment-methods/${agencyId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
