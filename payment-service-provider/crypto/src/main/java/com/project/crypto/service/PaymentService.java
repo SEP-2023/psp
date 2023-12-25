@@ -69,14 +69,14 @@ public class PaymentService {
     }
 
 
-    public void confirmOrder(String orderId) {
-        CryptoTransaction cryptoTransaction = transactionRepository.findCryptoTransactionById(Long.parseLong(orderId));
+    public void confirmOrder(String transactionId) {
+        CryptoTransaction cryptoTransaction = transactionRepository.findCryptoTransactionById(Long.parseLong(transactionId));
         cryptoTransaction.setStatus("PAID");
         transactionRepository.save(cryptoTransaction);
     }
 
-    public void cancelOrder(String orderId) {
-        CryptoTransaction cryptoTransaction = transactionRepository.findCryptoTransactionById(Long.parseLong(orderId));
+    public void cancelOrder(String transactionId) {
+        CryptoTransaction cryptoTransaction = transactionRepository.findCryptoTransactionById(Long.parseLong(transactionId));
         cryptoTransaction.setStatus("CANCELED");
         transactionRepository.save(cryptoTransaction);
     }

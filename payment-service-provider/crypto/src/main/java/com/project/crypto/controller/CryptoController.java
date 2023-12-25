@@ -21,14 +21,14 @@ public class CryptoController {
     }
 
     @GetMapping("/confirm/{id}")
-    public ResponseEntity<String> confirmPayment(@PathVariable("id") String orderId){
-        paymentService.confirmOrder(orderId);
+    public ResponseEntity<String> confirmPayment(@PathVariable("id") String transactionId){
+        paymentService.confirmOrder(transactionId);
         return new ResponseEntity<>("Transaction confirmed.", HttpStatus.OK);
     }
 
     @GetMapping("/cancel/{id}")
-    public ResponseEntity<String> cancelPayment(@PathVariable("id") String orderId){
-        paymentService.cancelOrder(orderId);
+    public ResponseEntity<String> cancelPayment(@PathVariable("id") String transactionId){
+        paymentService.cancelOrder(transactionId);
         return new ResponseEntity<>("Transaction canceled.", HttpStatus.OK);
     }
 
