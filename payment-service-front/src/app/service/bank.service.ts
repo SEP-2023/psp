@@ -10,7 +10,7 @@ export class BankService {
 
   url = environment.bank_url;
 
-  getPaymentUrl(amount:string, transactionId: string, agencyId: string){
+  getPaymentUrl(amount:string, transactionId: string, agencyId: string, qr: boolean){
     let body = {
       amount: amount,
       merchantOrderId: transactionId,
@@ -18,7 +18,8 @@ export class BankService {
       merchantTimestamp: new Date(),
       successUrl: "http://localhost:4200/success",
       errorUrl: "http://localhost:4200/error",
-      failedUrl: "http://localhost:4200/failed"
+      failedUrl: "http://localhost:4200/failed",
+      qr: qr
     }
     return this._http.post<any>(`${this.url}getPaymentUrl`,body, {
       headers: new HttpHeaders({

@@ -31,9 +31,9 @@ export class PaymentWayPageComponent implements OnInit {
     console.log('radi')
   }
 
-  redirectToBank() {
+  redirectToBank(qr: boolean) {
     this.bankService
-      .getPaymentUrl(this.price, this.transactionId, this.agencyId)
+      .getPaymentUrl(this.price, this.transactionId, this.agencyId, qr)
       .subscribe(
         (data) => {
           console.log(data)

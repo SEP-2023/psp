@@ -36,6 +36,7 @@ public class PaymentService {
         request.setSuccessUrl(dto.getSuccessUrl());
         request.setErrorUrl(dto.getErrorUrl());
         request.setFailedUrl(dto.getFailedUrl());
+        request.setQr(dto.isQr());
         PaymentUrlResponseDto response = getPaymentUrlFromBank(merchant.getBank().getUrl(), request);
 
         Transaction t = new Transaction();
