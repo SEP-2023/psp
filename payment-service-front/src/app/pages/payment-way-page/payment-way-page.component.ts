@@ -4,6 +4,7 @@ import { PaypalService } from 'src/app/service/paypal.service';
 import {ActivatedRoute} from "@angular/router";
 import {CryptoService} from "../../service/crypto.service";
 import {SubscriptionService} from "../../service/subscription.service";
+import {BankService} from "../../service/bank.service";
 
 @Component({
   selector: 'app-payment-way-page',
@@ -14,7 +15,7 @@ export class PaymentWayPageComponent implements OnInit {
 
 
 
-  constructor(private paypalService: PaypalService,private cryptoService: CryptoService, private subscriptionService: SubscriptionService, private route: ActivatedRoute) {
+  constructor(private paypalService: PaypalService,private cryptoService: CryptoService, private subscriptionService: SubscriptionService, private route: ActivatedRoute, private bankService: BankService) {
     this.paypalSubscribed = false;
     this.qrSubscribed = false;
     this.bitcoinSubscribed = false;
@@ -58,8 +59,19 @@ export class PaymentWayPageComponent implements OnInit {
     console.log('radi')
   }
 
-  redirectToBank() {
-    window.location.href = environment.bank_front_url;
+  redirectToBank(qr: boolean) {
+    this.bankService
+      .getPaymentUrl(this.price, this.transactionId, this.agencyId, qr)
+      .subscribe(
+        (data) => {
+          console.log(data)
+          window.location.href = data.paymentUrl;
+        },
+        (error) => {
+          console.log(error);
+          alert('Greska');
+        }
+      );
   }
   redirectToSubscription() {
     window.location.href = `${environment.psp_front_url}/subscription?price=${this.price}&transactionId=${this.transactionId}&agencyId=${this.agencyId}`;

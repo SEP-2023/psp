@@ -23,6 +23,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CryptoSuccessPageComponent } from './pages/crypto-success-page/crypto-success-page.component';
 import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto-canceled-page.component';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
+import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
+import { PaymentFailedComponent } from './components/payment-failed/payment-failed.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,9 @@ import { SubscriptionComponent } from './pages/subscription/subscription.compone
     CryptoSuccessPageComponent,
     CryptoCanceledPageComponent,
     SubscriptionComponent
+    PaymentCanceledComponent,
+    PaymentErrorComponent,
+    PaymentFailedComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,6 @@ import { SubscriptionComponent } from './pages/subscription/subscription.compone
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
