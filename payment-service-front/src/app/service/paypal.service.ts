@@ -50,6 +50,7 @@ export class PaypalService {
       transactionId:transactionId,
       agencyId: agencyId
     }
+    console.log(body)
     return this._http.post<any>(`${this.url}/create-subscription`,body, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

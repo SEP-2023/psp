@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1155269-fe28-48d1-8cc9-202e543d4552" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2XxLB2Q0qVeHfXIwUlmLklIUQ7Q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/auth-service/src/main/resources" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3567319" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\I\Desktop\SEP-organization\psp\payment-service-provider\auth-service\src\main\resources" />
+      <recent name="C:\Users\I\Desktop\SEP-organization\psp\payment-service-provider\auth-service\src\main\java\com\project\auth_service\utils" />
+      <recent name="C:\Users\I\Desktop\SEP-organization\psp\payment-service-provider\auth-service\src\main\java\com\project\auth_service\dto" />
+      <recent name="C:\Users\I\Desktop\SEP-organization\psp\payment-service-provider\auth-service\src\main\java\com\project\auth_service\model" />
+      <recent name="C:\Users\I\Desktop\SEP-organization\psp\payment-service-provider\auth-service\src\main\java\com\project\auth_service\service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.project.paypal.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
+    <configuration name="All in subscription" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="subscription" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.apigateway.ApiGatewayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="payment.service.provider" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.auth_service.Application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="subscription" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.subscription.Application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="bank.payment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.bank.payment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.bank.payment.BankApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CryptoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="crypto" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.crypto.CryptoApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaypalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="paypal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.paypal.PaypalApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceRegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="service-registry" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.serviceregistry.ServiceRegistryApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.All in subscription" />
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Spring Boot.CryptoApplication" />
+      <item itemvalue="Spring Boot.PaypalApplication" />
+      <item itemvalue="Spring Boot.Application (1)" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.BankApplication" />
+      <item itemvalue="Spring Boot.ServiceRegistryApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ApiGatewayApplication" />
+        <item itemvalue="Spring Boot.ServiceRegistryApplication" />
+        <item itemvalue="JUnit.All in subscription" />
+        <item itemvalue="Spring Boot.BankApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1155269-fe28-48d1-8cc9-202e543d4552" name="Changes" comment="" />
+      <created>1699565645541</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699565645541</updated>
+      <workItem from="1699565646868" duration="3189000" />
+      <workItem from="1699602995597" duration="32000" />
+      <workItem from="1699651620287" duration="669000" />
+      <workItem from="1699652685849" duration="34000" />
+      <workItem from="1699905488216" duration="40000" />
+      <workItem from="1699905552647" duration="8000" />
+      <workItem from="1699905584785" duration="29000" />
+      <workItem from="1699905657242" duration="58000" />
+      <workItem from="1699905732614" duration="35000" />
+      <workItem from="1699905786915" duration="43000" />
+      <workItem from="1699905859939" duration="114000" />
+      <workItem from="1699905977453" duration="4805000" />
+      <workItem from="1699911260468" duration="5402000" />
+      <workItem from="1699948059103" duration="600000" />
+      <workItem from="1699956888778" duration="2394000" />
+      <workItem from="1699984751654" duration="3645000" />
+      <workItem from="1699994877437" duration="605000" />
+      <workItem from="1700063003217" duration="1611000" />
+      <workItem from="1700078271743" duration="13000" />
+      <workItem from="1700085144523" duration="7207000" />
+      <workItem from="1700120849776" duration="39000" />
+      <workItem from="1700416183589" duration="1765000" />
+      <workItem from="1700499303491" duration="14489000" />
+      <workItem from="1700555934896" duration="179000" />
+      <workItem from="1700571958547" duration="1304000" />
+      <workItem from="1700574860150" duration="40000" />
+      <workItem from="1703238102877" duration="762000" />
+      <workItem from="1703279557547" duration="801000" />
+      <workItem from="1703353230512" duration="10572000" />
+      <workItem from="1703364817198" duration="8024000" />
+      <workItem from="1703377545131" duration="1661000" />
+      <workItem from="1703410769342" duration="10097000" />
+      <workItem from="1703461672663" duration="549000" />
+      <workItem from="1703512634321" duration="13979000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:com.google.inject:guice" />
+    <option featureType="dependencySupport" implementationName="java:com.amazonaws:aws-java-sdk-core" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

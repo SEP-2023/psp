@@ -22,6 +22,7 @@ export class SubscriptionRedirectComponent implements OnInit {
       this.frequency = params['frequency'];
       this.transactionId = params['transactionId'];
       this.agencyId = params['agencyId'];
+      console.log("tuu")
       this.createSubscription();
     });
   }

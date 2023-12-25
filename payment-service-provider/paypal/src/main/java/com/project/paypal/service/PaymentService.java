@@ -105,6 +105,7 @@ public class PaymentService {
 
         Plan requestPlan = new Plan();
         requestPlan.setId(plan.getId());
+        System.out.println("plan");
         apiContext.setMaskRequestId(true);
 
         Agreement agreement = new Agreement();
@@ -117,6 +118,7 @@ public class PaymentService {
         agreement.setPlan(requestPlan);
         agreement.setPayer(new Payer().setPaymentMethod("paypal"));
         agreement.setDescription(subscriptionPlan.getDescription());
+        System.out.println("tu");
         agreement = agreement.create(apiContext);
 
         Subscription subscription = new Subscription();
