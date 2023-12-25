@@ -65,4 +65,16 @@ export class PaypalService {
       }),
     });
   }
+
+  getTokenData(token: string){
+    let body = {
+      token:token,
+    }
+    return this._http.post<any>(`${environment.psp_auth_url}get-token-data`,body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    });
+  }
 }

@@ -38,7 +38,17 @@ export class PaymentWayPageComponent implements OnInit {
       this.price = params['price'];
       this.transactionId = params['transactionId'];
       this.agencyId = params['agencyId'];
-      console.log('Received parameters:', this.price);
+      let token = params['token'];
+      console.log('Received parameters:', token);
+      this.paypalService.getTokenData(token).subscribe(
+        (data)=>{
+          console.log(data);
+          sessionStorage.setItem('accessToken',data.accessToken);
+        },
+        (error)=>{
+          console.log(error);
+        }
+      );
     });
     this.subscriptionService.getPaymentMethods(this.agencyId).subscribe(
       (data) => {

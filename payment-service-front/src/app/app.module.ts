@@ -36,11 +36,9 @@ import { PaymentFailedComponent } from './components/payment-failed/payment-fail
     PaymentCanceledComponent,
     SubscriptionRedirectComponent,
     ConfirmSubscriptionComponent,
-    PaymentCanceledComponent,
     CryptoSuccessPageComponent,
     CryptoCanceledPageComponent,
-    SubscriptionComponent
-    PaymentCanceledComponent,
+    SubscriptionComponent,
     PaymentErrorComponent,
     PaymentFailedComponent
   ],
