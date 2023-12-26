@@ -13,7 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ConfirmPaymentPageComponent } from './pages/confirm-payment-page/confirm-payment-page.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { PaymentCanceledComponent } from './components/payment-canceled/payment-canceled.component';
@@ -25,6 +25,8 @@ import { CryptoCanceledPageComponent } from './pages/crypto-canceled-page/crypto
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
 import { PaymentFailedComponent } from './components/payment-failed/payment-failed.component';
+import { LoginRegistrationComponent } from './pages/login-registration/login-registration.component';
+import { ListSubscriptionsComponent } from './pages/list-subscriptions/list-subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +41,12 @@ import { PaymentFailedComponent } from './components/payment-failed/payment-fail
     PaymentCanceledComponent,
     CryptoSuccessPageComponent,
     CryptoCanceledPageComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
     PaymentCanceledComponent,
     PaymentErrorComponent,
-    PaymentFailedComponent
+    PaymentFailedComponent,
+    LoginRegistrationComponent,
+    ListSubscriptionsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ import { PaymentFailedComponent } from './components/payment-failed/payment-fail
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,

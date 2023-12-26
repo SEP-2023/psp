@@ -6,9 +6,9 @@
         <option value="$PROJECT_DIR$/service-registry/pom.xml" />
         <option value="$PROJECT_DIR$/paypal/pom.xml" />
         <option value="$PROJECT_DIR$/API-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/auth-service/pom.xml" />
         <option value="$PROJECT_DIR$/crypto/pom.xml" />
         <option value="$PROJECT_DIR$/bank-payment/pom.xml" />
+        <option value="$PROJECT_DIR$/auth-service/pom.xml" />
       </list>
     </option>
   </component>

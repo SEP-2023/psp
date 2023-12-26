@@ -11,9 +11,8 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class SubscriptionComponent implements OnInit {
 
-  private price!: string;
-  private transactionId!: string;
   private agencyId!: string;
+  private token!: string;
   paypalSubscribed!: boolean;
   bitcoinSubscribed!: boolean;
   cardSubscribed!: boolean;
@@ -27,10 +26,8 @@ export class SubscriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.price = params['price'];
-      this.transactionId = params['transactionId'];
       this.agencyId = params['agencyId'];
-      console.log('Received parameters:', this.price);
+      this.token = params['token'];
     });
     this.subscriptionService
       .getPaymentMethods(this.agencyId)
@@ -51,7 +48,7 @@ export class SubscriptionComponent implements OnInit {
   }
 
   redirectToPayment() {
-    window.location.href = `${environment.psp_front_url}?price=${this.price}&transactionId=${this.transactionId}&agencyId=${this.agencyId}`;
+    window.location.href = `${environment.psp_front_url}/list-subscriptions?agencyId=${this.agencyId}&token=${this.token}`;
   }
 
   subscribe(method: string) {

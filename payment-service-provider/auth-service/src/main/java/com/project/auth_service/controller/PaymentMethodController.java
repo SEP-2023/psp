@@ -4,11 +4,14 @@ import com.project.auth_service.dto.AddPaymentMethodDto;
 import com.project.auth_service.dto.PaymentMethodDto;
 import com.project.auth_service.model.PaymentMethod;
 import com.project.auth_service.service.PaymentMethodService;
+import io.github.cdimascio.dotenv.Dotenv;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +21,15 @@ import java.util.List;
 public class PaymentMethodController {
 
     private final PaymentMethodService paymentMethodService;
+    Dotenv dotenv = Dotenv.load();
+    String agencyId = dotenv.get("AGENCY_ID");
 
     @GetMapping("/payment-methods/{agencyId}")
     public ResponseEntity<List<PaymentMethodDto>> getShopPaymentMethods(@PathVariable String agencyId){
         System.out.println(agencyId);
-        List<PaymentMethod> dtos = paymentMethodService.getPaymentMethods(agencyId);
+        Dotenv dotenv = Dotenv.load();
+        String agencyIdVar = dotenv.get("AGENCY_ID");
+        List<PaymentMethod> dtos = paymentMethodService.getPaymentMethods(agencyIdVar);
         List<PaymentMethodDto> methods = new ArrayList<>();
         for (PaymentMethod m: dtos){
             PaymentMethodDto p = new PaymentMethodDto();
@@ -33,12 +40,24 @@ public class PaymentMethodController {
         return new ResponseEntity<>(methods, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('UPDATE_PAYMENT_METHODS_PERMISSION')")
     @PostMapping("/payment-methods")
     public ResponseEntity<Boolean> addPaymentMethod(@RequestBody AddPaymentMethodDto paymentInfo){
         PaymentMethod method = new PaymentMethod();
         method.setPaymentMethod(paymentInfo.getPaymentMethod());
         method.setAgencyId(paymentInfo.getAgencyId());
         paymentMethodService.addPaymentMethod(method);
+        return new ResponseEntity<Boolean>( true, HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasAuthority('UPDATE_PAYMENT_METHODS_PERMISSION')")
+    @GetMapping("/remove-payment-methods/{method}")
+    public ResponseEntity<Boolean> removePaymentMethod(@PathVariable String method){
+        PaymentMethod paymentMethod = new PaymentMethod();
+        paymentMethod.setPaymentMethod(method);
+        paymentMethod.setAgencyId(agencyId);
+        System.out.println(method);
+        paymentMethodService.removePaymentMethod(paymentMethod);
         return new ResponseEntity<Boolean>( true, HttpStatus.OK);
     }
 

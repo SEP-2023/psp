@@ -9,4 +9,7 @@ import java.util.List;
 public interface PaymentMethodRepository extends JpaRepository<PaymentMethod, Long> {
     @Query("SELECT l FROM PaymentMethod l WHERE l.agencyId=?1")
     List<PaymentMethod> findByAgencyId(String agencyId);
+
+    @Query("SELECT l FROM PaymentMethod l WHERE l.agencyId=?1 AND l.paymentMethod=?2")
+    List<PaymentMethod> findByAgencyIdAndMethod(String agencyId, String method);
 }

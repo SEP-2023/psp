@@ -25,6 +25,20 @@ export class SubscriptionService {
 
   }
 
+  unsubscribe(paymentMethod :string, agencyId: string){
+    let body = {
+      paymentMethod:paymentMethod,
+      agencyId: agencyId
+    }
+    return this._http.get<any>(`${this.url}/remove-payment-methods/${paymentMethod}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    });
+
+  }
+
   getPaymentMethods(agencyId: string){
     return this._http.get<any>(`${this.url}/payment-methods/${agencyId}`, {
       headers: new HttpHeaders({
