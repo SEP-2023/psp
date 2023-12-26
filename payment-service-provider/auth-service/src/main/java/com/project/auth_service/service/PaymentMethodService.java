@@ -1,7 +1,5 @@
 package com.project.auth_service.service;
 
-import com.project.auth_service.dto.AddPaymentMethodDto;
-import com.project.auth_service.dto.PaymentMethodDto;
 import com.project.auth_service.model.PaymentMethod;
 import com.project.auth_service.repository.PaymentMethodRepository;
 import io.github.cdimascio.dotenv.Dotenv;
