@@ -11,6 +11,8 @@ import {CryptoSuccessPageComponent} from "./pages/crypto-success-page/crypto-suc
 import {SubscriptionComponent} from "./pages/subscription/subscription.component";
 import {PaymentErrorComponent} from "./components/payment-error/payment-error.component";
 import {PaymentFailedComponent} from "./components/payment-failed/payment-failed.component";
+import {ListSubscriptionsComponent} from "./pages/list-subscriptions/list-subscriptions.component";
+import {LoginRegistrationComponent} from "./pages/login-registration/login-registration.component";
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'subscription', component: SubscriptionComponent },
   { path: 'error', component: PaymentErrorComponent },
   { path: 'failed', component: PaymentFailedComponent },
+  { path: 'login', component: LoginRegistrationComponent },
+  { path: 'list-subscriptions', component: ListSubscriptionsComponent },
 ];
 
 @NgModule({

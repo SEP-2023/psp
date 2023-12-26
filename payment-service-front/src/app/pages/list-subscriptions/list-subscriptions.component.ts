@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {PaypalService} from "../../service/paypal.service";
+import {CryptoService} from "../../service/crypto.service";
 import {SubscriptionService} from "../../service/subscription.service";
-import {environment} from "../../../environments/environment";
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Component({
-  selector: 'app-subscription',
-  templateUrl: './subscription.component.html',
-  styleUrls: ['./subscription.component.css']
+  selector: 'app-list-subscriptions',
+  templateUrl: './list-subscriptions.component.html',
+  styleUrls: ['./list-subscriptions.component.css']
 })
-export class SubscriptionComponent implements OnInit {
+export class ListSubscriptionsComponent implements OnInit {
+
+  constructor(private paypalService: PaypalService,private cryptoService: CryptoService, private subscriptionService: SubscriptionService, private route: ActivatedRoute) {
+    this.paypalSubscribed = false;
+    this.qrSubscribed = false;
+    this.bitcoinSubscribed = false;
+    this.cardSubscribed = false;
+  }
 
   private agencyId!: string;
   private token!: string;
@@ -17,17 +25,13 @@ export class SubscriptionComponent implements OnInit {
   bitcoinSubscribed!: boolean;
   cardSubscribed!: boolean;
   qrSubscribed!: boolean;
-  constructor(private subscriptionService: SubscriptionService, private route: ActivatedRoute) {
-    this.paypalSubscribed = false;
-    this.qrSubscribed = false;
-    this.bitcoinSubscribed = false;
-    this.cardSubscribed = false;
-  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.agencyId = params['agencyId'];
       this.token = params['token'];
+      this.agencyId = params['agencyId'];
+      console.log(this.token)
+      console.log(this.agencyId)
     });
     this.subscriptionService
       .getPaymentMethods(this.agencyId)
@@ -47,30 +51,13 @@ export class SubscriptionComponent implements OnInit {
       );
   }
 
-  redirectToPayment() {
-    window.location.href = `${environment.psp_front_url}/list-subscriptions?agencyId=${this.agencyId}&token=${this.token}`;
+  redirect(){
+    console.log('radi')
   }
 
-  subscribe(method: string) {
-    this.subscriptionService
-      .subscribe(method, this.agencyId)
-      .subscribe(
-        (data) => {
-          console.log(data)
-        },
-        (error) => {
-          console.log(error);
-          alert('Greska');
-        }
-      );
-    if (method == "card"){
-      this.cardSubscribed = true;
-    }else if (method == "qr"){
-      this.qrSubscribed = true;
-    }else if (method == "bitcoin"){
-      this.bitcoinSubscribed = true;
-    }else if (method == "paypal"){
-      this.paypalSubscribed = true;
-    }
+  redirectToSubscription() {
+    window.location.href = `${environment.psp_front_url}/subscription?agencyId=${this.agencyId}&token=${this.token}`;
   }
+
+
 }

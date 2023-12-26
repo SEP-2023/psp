@@ -7,6 +7,7 @@ import com.project.auth_service.service.PaymentMethodService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.core.Response;
@@ -33,6 +34,7 @@ public class PaymentMethodController {
         return new ResponseEntity<>(methods, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('UPDATE_PAYMENT_METHODS_PERMISSION')")
     @PostMapping("/payment-methods")
     public ResponseEntity<Boolean> addPaymentMethod(@RequestBody AddPaymentMethodDto paymentInfo){
         PaymentMethod method = new PaymentMethod();
