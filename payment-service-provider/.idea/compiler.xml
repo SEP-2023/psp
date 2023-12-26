@@ -10,15 +10,16 @@
         <module name="bank.payment" />
         <module name="api-gateway" />
         <module name="paypal" />
+        <module name="payment.service.provider" />
         <module name="service-registry" />
         <module name="crypto" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api-gateway" target="1.8" />
-      <module name="bank.payment" target="8" />
-      <module name="crypto" target="8" />
-      <module name="payment.service.provider" target="11" />
+      <module name="api-gateway" target="8" />
+      <module name="bank.payment" target="14" />
+      <module name="crypto" target="11" />
+      <module name="payment.service.provider" target="8" />
       <module name="paypal" target="8" />
       <module name="service-registry" target="8" />
       <module name="subscription" target="8" />

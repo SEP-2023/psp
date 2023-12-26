@@ -59,5 +59,26 @@ export class ListSubscriptionsComponent implements OnInit {
     window.location.href = `${environment.psp_front_url}/subscription?agencyId=${this.agencyId}&token=${this.token}`;
   }
 
-
+  unsubscribe(method: string) {
+    this.subscriptionService
+      .unsubscribe(method, this.agencyId)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (error) => {
+          console.log(error);
+          alert('Greska');
+        }
+      );
+    if (method == "card"){
+      this.cardSubscribed = false;
+    }else if (method == "qr"){
+      this.qrSubscribed = false;
+    }else if (method == "bitcoin"){
+      this.bitcoinSubscribed = false;
+    }else if (method == "paypal"){
+      this.paypalSubscribed = false;
+    }
+  }
 }
