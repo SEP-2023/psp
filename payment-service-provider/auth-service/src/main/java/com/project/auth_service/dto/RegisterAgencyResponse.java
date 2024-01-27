@@ -6,4 +6,5 @@ import lombok.Data;
 public class RegisterAgencyResponse {
     private String agencyId;
     private String secret;
+    private String qrCode;
 }

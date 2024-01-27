@@ -3,6 +3,7 @@ package com.project.auth_service.controller;
 import com.project.auth_service.dto.*;
 import com.project.auth_service.service.AgencyService;
 import com.project.auth_service.service.PaymentMethodService;
+import dev.samstevens.totp.exceptions.QrGenerationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class AgencyController {
     private final PaymentMethodService paymentMethodService;
 
     @PostMapping("/register")
-    public RegisterAgencyResponse registerShop(@RequestBody RegisterAgencyDto dto) {
+    public RegisterAgencyResponse registerShop(@RequestBody RegisterAgencyDto dto) throws QrGenerationException {
         return agencyService.registerShop(dto);
     }
 

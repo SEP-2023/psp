@@ -11,6 +11,7 @@ export class LoginInfo {
   constructor(
     public mail: string = '',
     public password: string = '',
+    public pin: string = ''
   ) {}
 }
 

@@ -6,9 +6,16 @@ import com.project.auth_service.model.Agency;
 import com.project.auth_service.repository.AgencyRepository;
 import com.project.auth_service.repository.RoleRepository;
 import com.project.auth_service.utils.JwtUtil;
+import dev.samstevens.totp.code.CodeVerifier;
+import dev.samstevens.totp.exceptions.QrGenerationException;
+import dev.samstevens.totp.qr.QrData;
+import dev.samstevens.totp.qr.QrDataFactory;
+import dev.samstevens.totp.qr.QrGenerator;
+import dev.samstevens.totp.secret.SecretGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +29,13 @@ public class AgencyService {
     private final AgencyRepository agencyRepository;
     private final JwtUtil jwtUtil;
     private final RoleRepository roleRepository;
+    private final QrDataFactory qrDataFactory;
+    private final QrGenerator qrGenerator;
+    private final SecretGenerator secretGenerator;
+    private final CodeVerifier verifier;
 
 
-    public RegisterAgencyResponse registerShop(RegisterAgencyDto registerAgencyDto) {
+    public RegisterAgencyResponse registerShop(RegisterAgencyDto registerAgencyDto) throws QrGenerationException {
         RegisterAgencyResponse response = new RegisterAgencyResponse();
         Agency agency = new Agency();
         agency.setAgencyId(String.valueOf(UUID.randomUUID()));
@@ -35,13 +46,21 @@ public class AgencyService {
         Optional<Role> role = roleRepository.findById(1L);
         role.ifPresent(roles::add);
         agency.setRoles(roles);
+        agency.setSecret(secretGenerator.generate());
         agencyRepository.save(agency);
         response.setAgencyId(agency.getAgencyId());
+        QrData data = qrDataFactory.newBuilder().label(registerAgencyDto.getMail()).secret(agency.getSecret()).issuer("PSP").build();
+        String qrCodeImage = getDataUriForImage(qrGenerator.generate(data), qrGenerator.getImageMimeType());
+        response.setQrCode(qrCodeImage);
         return response;
     }
 
     public LoginResponse loginAgency(LoginDto dto){
         Agency agency = agencyRepository.getAgencyByMail(dto.getMail());
+        System.out.println(dto.getPin());
+        if(!verifier.isValidCode(agency.getSecret(), dto.getPin())){
+            agency = null;
+        }
         System.out.println(agency);
         if (agency !=null){
 
