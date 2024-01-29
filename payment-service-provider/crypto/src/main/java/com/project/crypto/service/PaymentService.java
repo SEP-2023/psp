@@ -20,6 +20,9 @@ public class PaymentService {
 
     String urlCoinGate = "https://api-sandbox.coingate.com/api/v2";
 
+    //     private final String appUrl = "http://localhost:4200/";
+    private final String appUrl = "http://89.216.102.70:4200/";
+
     @Autowired
     private TransactionRepository transactionRepository;
 
@@ -34,8 +37,8 @@ public class PaymentService {
                 "title=" + createPaymentDto.getAgencyId() + "_" + createPaymentDto.getTransactionId() + "&" +
 
                 //body.append("callback_url=").append(URLEncoder.encode(urlPSPCrypto+"callback", StandardCharsets.UTF_8)).append("&");
-                "cancel_url=" + URLEncoder.encode( "http://localhost:4200/cancel-crypto?transactionId=", StandardCharsets.UTF_8) + createPaymentDto.getTransactionId() + "&" +
-                "success_url=" + URLEncoder.encode( "http://localhost:4200/successful-crypto?transactionId=", StandardCharsets.UTF_8) + createPaymentDto.getTransactionId();
+                "cancel_url=" + URLEncoder.encode( appUrl + "cancel-crypto?transactionId=", StandardCharsets.UTF_8) + createPaymentDto.getTransactionId() + "&" +
+                "success_url=" + URLEncoder.encode( appUrl + "successful-crypto?transactionId=", StandardCharsets.UTF_8) + createPaymentDto.getTransactionId();
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(urlCoinGate +"/orders"))
