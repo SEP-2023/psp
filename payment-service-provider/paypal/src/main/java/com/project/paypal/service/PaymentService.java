@@ -30,7 +30,7 @@ public class PaymentService {
      private final SubscriptionRepository subscriptionRepository;
 
 //     private final String appUrl = "http://localhost:4200/";
-    private final String appUrl = "http://89.216.102.70:4200/";
+    private final String appUrl = "http://192.168.0.15:4200/";
 
     public Payment createPayment(CreatePaymentDto dto) throws PayPalRESTException {
 
