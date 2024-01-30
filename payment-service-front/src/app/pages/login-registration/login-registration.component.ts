@@ -22,11 +22,11 @@ export class LoginRegistrationComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   isRegistered: boolean = false;
   reenterPass: string = '';
+  qrCode: string = "";
 
   constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async loginUser() {
     if (this.loginInfo.mail === '' || this.loginInfo.password === '') {
@@ -95,10 +95,7 @@ export class LoginRegistrationComponent implements OnInit {
 
     this.authenticationService.registerUser(this.agency).subscribe({
       next: (data) => {
-        //this.toastr.success('Activation email is sent', 'Info');
-        alert('register')
-        this.isRegistered = false;
-        window.location.href = environment.psp_front_url+ '/login';
+        this.qrCode = data.qrCode;
       },
       error: (err) => {
         if (err.status == 400)

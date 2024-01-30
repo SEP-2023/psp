@@ -8,6 +8,6 @@ public class LoginDto {
 
     private String mail;
     private String password;
-    private String code;
+    private String pin;
 
 }

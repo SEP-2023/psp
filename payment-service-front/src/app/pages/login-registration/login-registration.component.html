@@ -17,16 +17,13 @@
           <div>
             <input type="text" class="form-control" placeholder="Email" [(ngModel)]="loginInfo.mail">
             <input type="password" class="form-control" placeholder="Password" [(ngModel)]="loginInfo.password">
+            <input type="password" class="form-control" placeholder="Pin" [(ngModel)]="loginInfo.pin">
             <button type="button" class="btn btn-dark" (click)="loginUser()">Login</button>
           </div>
         </div>
         <div *ngIf="!showLogin" class="register-show show-log-panel">
           <h2>REGISTER</h2>
           <mat-card-content>
-
-            <div style="padding-left: 38%;padding-top: 20%" *ngIf="isRegistered">
-              <mat-spinner color="warn"></mat-spinner>
-            </div>
 
             <div *ngIf="!isRegistered">
 
@@ -47,6 +44,14 @@
               </div>
 
 
+            </div>
+            <div *ngIf="isRegistered">
+              <div *ngIf="qrCode !== '' && qrCode !== undefined " >
+                <p style="font-weight: bold;">
+                  Your registration is successful! Scan this QR code using Google Authenticator app on your phone
+                  to use it later for login.</p>
+                <img class="col-md-8 align-items-center" style="margin: 20px;" alt="qr code" src="{{qrCode}}" />
+              </div>
             </div>
           </mat-card-content>
 
