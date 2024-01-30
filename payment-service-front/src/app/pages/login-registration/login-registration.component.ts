@@ -21,6 +21,7 @@ export class LoginRegistrationComponent implements OnInit {
   loginData: any;
   form: FormGroup = new FormGroup({});
   isRegistered: boolean = false;
+  reenterPass: string = '';
 
   constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService, private route: ActivatedRoute) { }
 
@@ -66,6 +67,28 @@ export class LoginRegistrationComponent implements OnInit {
     console.log(this.agency)
     if(this.agency.name == ''){
       alert('Please enter all fields.');
+      return;
+    }
+
+    const emailValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.agency.mail);
+    if (!emailValid){
+      alert('Email is invalid.')
+      return;
+    }
+
+    // Check for at least one uppercase letter
+    const hasUppercase = /[A-Z]/.test(this.agency.password);
+
+    // Check for at least one number
+    const hasNumber = /\d/.test(this.agency.password);
+
+    if (this.agency.password.length < 8 || !hasNumber || !hasUppercase){
+      alert('Password must contain number, upper letter and be minimum 8 characters long.')
+      return;
+    }
+
+    if (this.agency.password != this.reenterPass){
+      alert('Passwords must be same.')
       return;
     }
     this.isRegistered = true;
