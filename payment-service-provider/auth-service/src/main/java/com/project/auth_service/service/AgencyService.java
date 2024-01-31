@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +34,8 @@ public class AgencyService {
     private final QrGenerator qrGenerator;
     private final SecretGenerator secretGenerator;
     private final CodeVerifier verifier;
+
+    private final LoggerService logger = new LoggerService(this.getClass());
 
 
     public RegisterAgencyResponse registerShop(RegisterAgencyDto registerAgencyDto) throws QrGenerationException {
@@ -52,6 +55,7 @@ public class AgencyService {
         QrData data = qrDataFactory.newBuilder().label(registerAgencyDto.getMail()).secret(agency.getSecret()).issuer("PSP").build();
         String qrCodeImage = getDataUriForImage(qrGenerator.generate(data), qrGenerator.getImageMimeType());
         response.setQrCode(qrCodeImage);
+        logger.info(MessageFormat.format("Agency with mail {0} successfully registered", registerAgencyDto.getMail()));
         return response;
     }
 
