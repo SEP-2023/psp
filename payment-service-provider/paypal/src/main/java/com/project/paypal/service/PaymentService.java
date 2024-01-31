@@ -29,6 +29,8 @@ public class PaymentService {
      private final SubscriptionPlanRepository subscriptionPlanRepository;
      private final SubscriptionRepository subscriptionRepository;
 
+     private final LoggerService logger = new LoggerService(this.getClass());
+
 //     private final String appUrl = "http://localhost:4200/";
     private final String appUrl = "http://192.168.0.15:4200/";
 
