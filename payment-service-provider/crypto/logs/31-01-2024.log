@@ -1,0 +1,30 @@
+2024-Jan-31 19:25:31 [main] INFO  c.p.c.CryptoApplication                            - No active profile set, falling back to default profiles: default
+2024-Jan-31 19:25:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-Jan-31 19:25:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 113ms. Found 1 JPA repository interfaces.
+2024-Jan-31 19:25:32 [main] WARN  o.s.b.a.e.EndpointId                               - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-Jan-31 19:25:32 [main] INFO  o.s.c.c.s.GenericScope                             - BeanFactory id=af9182d6-a9f8-33b7-adf6-c9813a23ff0e
+2024-Jan-31 19:25:32 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8082 (http)
+2024-Jan-31 19:25:32 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8082"]
+2024-Jan-31 19:25:32 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2024-Jan-31 19:25:32 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.35]
+2024-Jan-31 19:25:33 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2024-Jan-31 19:25:33 [main] INFO  o.s.w.c.ContextLoader                              - Root WebApplicationContext: initialization completed in 1868 ms
+2024-Jan-31 19:25:33 [main] WARN  c.n.c.s.URLConfigurationSource                     - No URLs will be polled as dynamic configuration sources.
+2024-Jan-31 19:25:33 [main] INFO  c.n.c.s.URLConfigurationSource                     - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2024-Jan-31 19:25:33 [main] INFO  c.n.c.DynamicPropertyFactory                       - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@43fe2008
+2024-Jan-31 19:25:33 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2024-Jan-31 19:25:33 [task-1] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-Jan-31 19:25:33 [task-1] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.15.Final
+2024-Jan-31 19:25:33 [task-1] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-Jan-31 19:25:33 [task-1] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting...
+2024-Jan-31 19:25:33 [task-1] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed.
+2024-Jan-31 19:25:33 [task-1] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2024-Jan-31 19:25:34 [task-1] WARN  o.h.e.j.s.SqlExceptionHelper                       - SQL Warning Code: 0, SQLState: 00000
+2024-Jan-31 19:25:34 [task-1] WARN  o.h.e.j.s.SqlExceptionHelper                       - table "merchants" does not exist, skipping
+2024-Jan-31 19:25:34 [task-1] WARN  o.h.e.j.s.SqlExceptionHelper                       - SQL Warning Code: 0, SQLState: 00000
+2024-Jan-31 19:25:34 [task-1] WARN  o.h.e.j.s.SqlExceptionHelper                       - table "transactions" does not exist, skipping
+2024-Jan-31 19:25:34 [task-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-Jan-31 19:25:34 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-Jan-31 19:25:34 [main] WARN  c.n.c.s.URLConfigurationSource                     - No URLs will be polled as dynamic configuration sources.
+2024-Jan-31 19:25:34 [main] INFO  c.n.c.s.URLConfigurationSource                     - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2024-Jan-31 19:25:34 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
