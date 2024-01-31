@@ -29,6 +29,8 @@ public class PaymentService {
      private final SubscriptionPlanRepository subscriptionPlanRepository;
      private final SubscriptionRepository subscriptionRepository;
 
+//     private final String appUrl = "http://localhost:4200/";
+    private final String appUrl = "http://192.168.0.15:4200/";
 
     public Payment createPayment(CreatePaymentDto dto) throws PayPalRESTException {
 
@@ -53,8 +55,8 @@ public class PaymentService {
         payment.setIntent("SALE");
 
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl( "http://localhost:4200/api/cancel-paypal-payment" );
-        String returnLink = "http://localhost:4200/confirm-payment?price="+dto.getAmount()+ "&transactionId=" + dto.getTransactionId()+ "&agencyId="+dto.getAgencyId();
+        redirectUrls.setCancelUrl(appUrl + "api/cancel-paypal-payment");
+        String returnLink = appUrl + "confirm-payment?price="+dto.getAmount()+ "&transactionId=" + dto.getTransactionId()+ "&agencyId="+dto.getAgencyId();
         redirectUrls.setReturnUrl(returnLink);
         payment.setRedirectUrls(redirectUrls);
         apiContext.setMaskRequestId(true);
@@ -176,8 +178,8 @@ public class PaymentService {
         paymentDefinitionList.add(paymentDefinition);
         plan.setPaymentDefinitions(paymentDefinitionList);
 
-        String confirmUrl = "http://localhost:4200/confirm-subscription?transactionId="+ dto.getTransactionId()+"&agencyId="+dto.getAgencyId()+"&amount="+dto.getAmount();
-        String cancelUrl = "http://localhost:4200/cancel";
+        String confirmUrl = appUrl + "confirm-subscription?transactionId="+ dto.getTransactionId()+"&agencyId="+dto.getAgencyId()+"&amount="+dto.getAmount();
+        String cancelUrl = appUrl + "cancel";
 
         MerchantPreferences merchantPreferences = new MerchantPreferences();
         merchantPreferences.setSetupFee(currency);

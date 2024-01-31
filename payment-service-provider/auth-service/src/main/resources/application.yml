@@ -38,7 +38,10 @@ eureka:
 
 
 
-shop:
-  paypal: 'http://localhost:8084/'
-  bank: 'http://localhost:8080/'
-  crypto: 'http://localhost:8082/'
+#shop:
+##  paypal: 'http://localhost:8084/'
+##  bank: 'http://localhost:8080/'
+##  crypto: 'http://localhost:8082/'
+#  paypal: 'http://89.216.102.70:8084/'
+#  bank: 'http://89.216.102.70:8080/'
+#  crypto: 'http://89.216.102.70:8082/'
