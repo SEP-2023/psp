@@ -13,6 +13,7 @@ import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.*;
 import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
 
 @RequiredArgsConstructor
 @Service
@@ -22,6 +23,8 @@ public class PaymentService {
 
     //     private final String appUrl = "http://localhost:4200/";
     private final String appUrl = "http://89.216.102.70:4200/";
+
+    private final LoggerService logger = new LoggerService(this.getClass());
 
     @Autowired
     private TransactionRepository transactionRepository;
@@ -50,6 +53,7 @@ public class PaymentService {
 
         HttpResponse<String> response = null;
         try {
+            logger.info(MessageFormat.format("Sending request to coin gate for transaction with ID {0}", createPaymentDto.getTransactionId()));
             response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
@@ -66,7 +70,7 @@ public class PaymentService {
         cryptoTransaction.setStatus("NEW");
         cryptoTransaction.setAgencyId(createPaymentDto.getAgencyId());
         transactionRepository.saveAndFlush(cryptoTransaction);
-
+        logger.success(MessageFormat.format("Successfully saved transaction with ID {0}", createPaymentDto.getTransactionId()));
         return paymentResponse;
 
     }
