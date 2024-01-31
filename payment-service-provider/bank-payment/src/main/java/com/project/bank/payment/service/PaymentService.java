@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
 @Service
@@ -26,7 +27,11 @@ public class PaymentService {
     @Autowired
     private TransactionService transactionService;
 
+    private LoggerService logger = new LoggerService(this.getClass());
+
+
     public PaymentUrlResponseDto getPaymentUrl(PaymentUrlRequestDto dto) {
+        logger.info(MessageFormat.format("Start creating payment url for merchant with ID {0}", dto.getMerchantId()));
         Merchant merchant = merchantService.findByMerchantId(dto.getMerchantId());
         InitialRequestDto request = new InitialRequestDto();
         request.setAmount(dto.getAmount());
@@ -49,17 +54,20 @@ public class PaymentService {
         t.setStatus(TransactionStatus.INITIATED);
         t.setMerchant(merchant);
         if(response != null){
+            logger.success("Successfully acquired paymentUrl from the bank");
             t.setPaymentId(response.getPaymentId());
         } else {
+            logger.error("Error while acquiring paymentUrl from the bank");
             t.setStatus(TransactionStatus.ERROR);
         }
 
         transactionService.save(t);
-
+        logger.success("Initial transaction info saved.");
         return response;
     }
 
     private PaymentUrlResponseDto getPaymentUrlFromBank(String bankUrl, InitialRequestDto request) {
+        logger.info("Sending request to the acquirer bank to get paymentUrl");
         String url = bankUrl + "getPaymentUrl";
             ResponseEntity<PaymentUrlResponseDto> response = WebClient.builder()
                     .build().post()
@@ -80,6 +88,7 @@ public class PaymentService {
     }
 
     public StatusResponse completeTransaction(CompleteTransactionDto dto) {
+        logger.info(MessageFormat.format("Finishing transaction with ID {0} ...", dto.getPaymentId()));
         Transaction t = transactionService.findByPaymentId(dto.getPaymentId());
         t.setStatus(TransactionStatus.fromString(dto.getTransactionStatus()));
         t.setMerchantOrderId(dto.getMerchantOrderId());
@@ -88,10 +97,13 @@ public class PaymentService {
         transactionService.save(t);
         StatusResponse status = new StatusResponse();
         if(t.getStatus().equals(TransactionStatus.ERROR)){
+            logger.error(MessageFormat.format("Error while finishing transaction with ID {0}", dto.getPaymentId()));
             status.setStatus(t.getErrorUrl());
         } else if (t.getStatus().equals(TransactionStatus.FAILED)){
+            logger.info(MessageFormat.format("Failed to finish the transaction with ID {0}", dto.getPaymentId()));
             status.setStatus(t.getFailedUrl());
         } else {
+            logger.success(MessageFormat.format("Successfully finished the transaction with ID {0}", dto.getPaymentId()));
             status.setStatus(t.getSuccessUrl());
         }
         return status;
